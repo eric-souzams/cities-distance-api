@@ -1,8 +1,4 @@
 --
--- POSTGRES SQL BY: https://github.com/chinnonsantos/sql-paises-estados-cidades/
---
-
---
 -- Estrutura da tabela "cidade"
 --
 
@@ -21,7 +17,7 @@ DROP TABLE IF EXISTS "cidade" CASCADE;
 -- Estrutura da tabela "cidade"
 --
 
-CREATE TABLE public.cidade (
+CREATE TABLE cidade (
     id bigint NOT NULL,
     nome character varying(120),
     uf integer,
@@ -33,17 +29,17 @@ CREATE TABLE public.cidade (
 );
 
 
-COMMENT ON COLUMN public.cidade.cod_tom
+COMMENT ON COLUMN cidade.cod_tom
   IS 'Código TOM (SEFAZ)';
 
 
-ALTER TABLE public.cidade OWNER TO postgres;
+ALTER TABLE cidade OWNER TO postgres;
 
 --
 -- Name: cidade_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.cidade_id_seq
+CREATE SEQUENCE cidade_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -51,27 +47,27 @@ CREATE SEQUENCE public.cidade_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.cidade_id_seq OWNER TO postgres;
+ALTER TABLE cidade_id_seq OWNER TO postgres;
 
 --
 -- Name: cidade_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.cidade_id_seq OWNED BY public.cidade.id;
+ALTER SEQUENCE cidade_id_seq OWNED BY public.cidade.id;
 
 
 --
 -- Name: cidade id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.cidade ALTER COLUMN id SET DEFAULT nextval('public.cidade_id_seq'::regclass);
+ALTER TABLE ONLY cidade ALTER COLUMN id SET DEFAULT nextval('cidade_id_seq'::regclass);
 
 
 --
 -- Inserindo dados na tabela "cidade"
 --
 
-COPY public.cidade (id, nome, uf, ibge, lat_lon, latitude, longitude, cod_tom) FROM stdin;
+COPY cidade (id, nome, uf, ibge, lat_lon, latitude, longitude, cod_tom) FROM stdin;
 1	Afonso Cláudio	8	3200102	(-20.0778007507324006,-41.1260986328125)	-20.0778007507324006	-41.1260986328125	5601
 2	Água Doce do Norte	8	3200169	(-18.5482006072998011,-40.9854011535645029)	-18.5482006072998011	-40.9854011535645029	5717
 3	Águia Branca	8	3200136	(-18.9846000671387003,-40.7436981201172017)	-18.9846000671387003	-40.7436981201172017	5733
@@ -5674,12 +5670,12 @@ COPY public.cidade (id, nome, uf, ibge, lat_lon, latitude, longitude, cod_tom) F
 -- Name: cidade_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.cidade_id_seq', 1, false);
+SELECT pg_catalog.setval('cidade_id_seq', 1, false);
 
 
 --
 -- Name: cidade cidade_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.cidade
+ALTER TABLE ONLY cidade
     ADD CONSTRAINT cidade_pkey PRIMARY KEY (id);
