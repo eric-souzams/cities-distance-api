@@ -12,7 +12,7 @@
 </p>
 
 ## About
-<strong>Cities API</strong> is an API for querying cities, states and countries, in addition to allowing you to calculate the distance between two cities, and returns the distance in the desired unit.
+<strong>Cities Distance</strong> is an API for querying cities, states and countries, in addition to allowing you to calculate the distance between two cities, and returns the distance in the desired unit.
 
 ## Preview
 #### State Methods
