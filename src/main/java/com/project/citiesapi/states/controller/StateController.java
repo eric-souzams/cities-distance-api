@@ -2,6 +2,8 @@ package com.project.citiesapi.states.controller;
 
 import com.project.citiesapi.states.entities.State;
 import com.project.citiesapi.states.repository.StateRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,8 +24,8 @@ public class StateController {
     }
 
     @GetMapping
-    public List<State> getAll() {
-        return stateRepository.findAll();
+    public Page<State> getAll(Pageable page) {
+        return stateRepository.findAll(page);
     }
 
     @GetMapping(value = "/{id}")
