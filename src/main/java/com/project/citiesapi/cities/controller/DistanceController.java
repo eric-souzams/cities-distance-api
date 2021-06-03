@@ -13,25 +13,25 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/distances")
 public class DistanceController {
 
-    private DistanceService service;
+    private DistanceService distanceService;
     Logger log = LoggerFactory.getLogger(DistanceController.class);
 
-    public DistanceController(DistanceService service) {
-        this.service = service;
+    public DistanceController(DistanceService distanceService) {
+        this.distanceService = distanceService;
     }
 
     @GetMapping("/by-points")
     public Double byPoints(@RequestParam(name = "from") final Long city1,
                            @RequestParam(name = "to") final Long city2) {
         log.info("byPoints");
-        return service.distanceByPointsInMiles(city1, city2);
+        return distanceService.distanceByPointsInMiles(city1, city2);
     }
 
     @GetMapping("/by-cube")
     public Double byCube(@RequestParam(name = "from") final Long city1,
                          @RequestParam(name = "to") final Long city2) {
         log.info("byCube");
-        return service.distanceByCubeInMeters(city1, city2);
+        return distanceService.distanceByCubeInMeters(city1, city2);
     }
 
     @GetMapping("/by-math")
@@ -39,6 +39,7 @@ public class DistanceController {
                          @RequestParam(name = "to") final Long city2,
                          @RequestParam final EarthRadiusService unit) {
         log.info("byMath");
-        return service.distanceUsingMath(city1, city2, unit);
+        return distanceService.distanceUsingMath(city1, city2, unit);
     }
+
 }

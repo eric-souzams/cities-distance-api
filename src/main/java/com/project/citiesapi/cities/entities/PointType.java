@@ -15,7 +15,7 @@ public class PointType implements UserType {
 
     @Override
     public int[] sqlTypes() {
-        return new int[] {java.sql.Types.OTHER};
+        return new int[] { java.sql.Types.OTHER };
     }
 
     @Override
@@ -47,8 +47,7 @@ public class PointType implements UserType {
     }
 
     @Override
-    public void nullSafeSet(PreparedStatement st, Object value, int index,
-                            SharedSessionContractImplementor session)
+    public void nullSafeSet(PreparedStatement st, Object value, int index, SharedSessionContractImplementor session)
             throws HibernateException, SQLException {
 
     }
